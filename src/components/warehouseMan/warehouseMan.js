@@ -7,7 +7,7 @@ import Maxsulotlar from "./components/Maxsulotlar";
 import TayyorMaxsulotlar from "./components/tayyor_maxsulot_ombori";
 import Drabilka_ombori from "./components/drabilka_ombori";
 import Vazvrat_ombori from "./components/vazvrat_ombori";
-import Qadoqlar_chiqim from "./components/qadoqalar_chiqim";
+import QadoqlarChiqim from "./components/qadoqalar_chiqim";
 import Qadoqlar_kirim from "./components/qadoqalar_kirim";
 
 class WarehouseMan extends Component {
@@ -69,20 +69,20 @@ class WarehouseMan extends Component {
                       search={this.state.search}
                     />
                   </Route>
-						<Route path={`${path}/qadoqlarchiqim`}>
-							<Qadoqlar_chiqim
-								keyword={this.state.key}
-								search={this.state.search}
-								url={path}
-							/>
-						</Route>
-						<Route path={`${path}/qadoqlarkirim`}>
-							<Qadoqlar_kirim
-								keyword={this.state.key}
-								search={this.state.search}
-								url={path}
-							/>
-						</Route>
+                  <Route path={`${path}/qadoqlarchiqim`}>
+                    <QadoqlarChiqim
+                      keyword={this.state.key}
+                      search={this.state.search}
+                      url={path}
+                    />
+                  </Route>
+                  <Route path={`${path}/qadoqlarkirim`}>
+                    <Qadoqlar_kirim
+                      keyword={this.state.key}
+                      search={this.state.search}
+                      url={path}
+                    />
+                  </Route>
                   {/* <Route path={`${path}/retsept`}>
                     <BrowserRouter>
                       <Switch>

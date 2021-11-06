@@ -3,7 +3,7 @@ import Data_pick from "./data_pick";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 
-class Qadoqlar_chiqim extends Component {
+class QadoqlarChiqim extends Component {
   state = {
     data: [],
   };
@@ -104,4 +104,4 @@ class Qadoqlar_chiqim extends Component {
   }
 }
 
-export default Qadoqlar_chiqim;
+export default QadoqlarChiqim;
