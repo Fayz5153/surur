@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Login from "./components/login/login";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Director from "./components/director/director";
+import BusinessManager from "./components/businessManager/businessManager";
+import Manager from "./components/Manager/manager";
+import WarehouseMan from "./components/warehouseMan/warehouseMan";
+import Technolog from "./components/technolog/technolog";
+import "./components/css/style.css"
+import "./components/css/navbar.css"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route path="/director" component={Director} />
+          <Route path="/businessManager" component={BusinessManager} />
+          <Route path="/manager" component={Manager} />
+          <Route path="/warehouseMan" component={WarehouseMan} />
+          <Route path="/technolog" component={Technolog} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
