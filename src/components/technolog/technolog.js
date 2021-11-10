@@ -1,11 +1,17 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import search from "./components/icons/search.svg";
-import user_pic from "./components/icons/user_pic.svg";
-import Buyurtma_tarixi from "./components/buyurtma_tarixi";
+import Rejalar from "./components/rejalar";
+import Hujjatlar from "./components/hujjatlar";
+import Takliflar from "./components/takliflar";
 import Retseptlar from "./components/retseptlar";
-
+import search from "./components/icons/search.svg";
+import Qaytaishlash from "./components/qaytaishlash";
+import user_pic from "./components/icons/user_pic.svg";
+import ReajalarTarixi from "./components/rejalartarixi";
+import HujjatlarTarixi from "./components/hujjatlartarixi";
+import RetseplarSingle from "./components/retseptlar_single";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import QaytaishlashTarixi from "./components/qaytaishlashtarixi";
 class Technolog extends Component {
   state = {
     key: "",
@@ -59,14 +65,52 @@ class Technolog extends Component {
               </div>
               <div className="switchs">
                 <Switch>
-                  <Route exact path={path}>
-                    <Buyurtma_tarixi
+                  <Route exact path={`${path}/retsept`}>
+                    <Retseptlar
+                      keyword={this.state.key}
+                      search={this.state.search}
+                      url={path}
+                    />
+                  </Route>
+                  <Route exact path={`${path}/retsept/:id`} component={RetseplarSingle} />
+                  <Route exact path={`${path}/rejalar`}>
+                    <Rejalar
                       keyword={this.state.key}
                       search={this.state.search}
                     />
                   </Route>
-                  <Route exact path={`${path}/retsept`}>
-                    <Retseptlar
+                  <Route exact path={`${path}/rejalarhisobi`}>
+                    <ReajalarTarixi
+                      keyword={this.state.key}
+                      search={this.state.search}
+                    />
+                  </Route>
+                  <Route exact path={`${path}/harajat`}>
+                    <Hujjatlar
+                      keyword={this.state.key}
+                      search={this.state.search}
+                    />
+                  </Route>
+                  <Route exact path={`${path}/harajattarixi`}>
+                    <HujjatlarTarixi
+                      keyword={this.state.key}
+                      search={this.state.search}
+                    />
+                  </Route>
+                  <Route exact path={`${path}/qaytaishlash`}>
+                    <Qaytaishlash
+                      keyword={this.state.key}
+                      search={this.state.search}
+                    />
+                  </Route>
+                  <Route exact path={`${path}/qaytaishlashtarixi`}>
+                    <QaytaishlashTarixi
+                      keyword={this.state.key}
+                      search={this.state.search}
+                    />
+                  </Route>
+                  <Route exact path={`${path}/takliflar`}>
+                    <Takliflar
                       keyword={this.state.key}
                       search={this.state.search}
                     />

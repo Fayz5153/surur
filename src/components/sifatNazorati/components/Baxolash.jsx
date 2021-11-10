@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import axios from "axios";
 import DataPick from './data_pick';
-import dateFormat from "dateformat";
 import Fade from "@material-ui/core/Fade";
 import Modal from "@material-ui/core/Modal";
 import Select from "@material-ui/core/Select";
 import Backdrop from "@material-ui/core/Backdrop";
-import MenuItem from "@material-ui/core/MenuItem";
-import Checkbox from '@material-ui/core/Checkbox';
 import { confirmAlert } from "react-confirm-alert";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 //Import css
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -29,22 +24,13 @@ class Baxolash extends Component {
             modal: false,
             check: false,
             yangi: null,
-            tayyor: "completed",
-            tayyorlanmoqda: "pending",
-            biscuit: "",
-            quantity: "",
-            comment: "",
-            complete_date: "",
-            complete_at: "",
-            id: "",
-         }
+        }
     }
     handleOpen = () => {
         this.setState({
           modal: true,
         });
     };
-    
     handleClose = () => {
         this.setState({
           modal: false,
@@ -61,61 +47,6 @@ class Baxolash extends Component {
           overlayClassName: "overlay-custom-class-name",
         });
     };
-    handleSendStatus = () => {
-        const status = {
-          yangi: this.state.yangi,
-          tayyor: this.state.tayyor,
-          tayyorlanmoqda: this.state.tayyorlanmoqda,
-        };
-        axios.put("/api/v1/order/client/orders/", status, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("accessToken"),
-          },
-        });
-        this.refreshPage()
-    };
-    handleSendBuyurtma = () => {
-        const buyurtma = {
-          biscuit: this.state.biscuit,
-          quantity: this.state.quantity,
-          comment: this.state.comment,
-          complete_at: this.state.complete_at,
-        };
-        axios.post("api/v1/order/client/orders/", buyurtma, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("accessToken"),
-          },
-        });
-        this.submit();
-        this.handleClose()
-        this.refreshPage()
-    };
-    refreshPage = () => { 
-        window.location.reload(); 
-    }
-    componentDidMount() {
-        axios
-          .get("/api/v1/order/client/orders/", {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("accessToken"),
-            },
-          })
-          .then((res) => {
-            const data = res.data;
-            this.setState({ data });
-          });
-        axios
-          .get("/api/v1/warehouse/biscuits/", {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("accessToken"),
-            },
-          })
-          .then((res) => {
-            const biscuits = res.data;
-            this.setState({ biscuits });
-            console.log(biscuits)
-          });
-    }
     render() { 
         return ( 
             <React.Fragment>
@@ -147,31 +78,46 @@ class Baxolash extends Component {
                                 <InputLabel id="demo-simple-select-outlined-label">
                                     Guruh nomi
                                 </InputLabel>
-                                <Select onChange={(event) => {this.setState({biscuit: event.target.value})}} label="Mas'ul shaxs">
-                                    {this.state.biscuits.map((bisc)=>{
+                                <Select 
+                                    // onChange={(event) => {this.setState({biscuit: event.target.value})}} 
+                                    label="Mas'ul shaxs"
+                                >
+                                    {/* {this.state.biscuits.map((bisc)=>{
                                         return(
                                             <MenuItem value={bisc.biscuit.id}>{bisc.biscuit.name}</MenuItem>
                                         )
-                                    })}
+                                    })} */}
                                 </Select>
                             </FormControl>
                             <FormControl variant="outlined" className="form_select">
                                 <InputLabel id="demo-simple-select-outlined-label">
                                     Hodim ismi
                                 </InputLabel>
-                                <Select onChange={(event) => {this.setState({biscuit: event.target.value})}} label="Mas'ul shaxs">
-                                    {this.state.biscuits.map((bisc)=>{
+                                <Select 
+                                    // onChange={(event) => {this.setState({biscuit: event.target.value})}} 
+                                    label="Mas'ul shaxs"
+                                >
+                                    {/* {this.state.biscuits.map((bisc)=>{
                                         return(
                                             <MenuItem value={bisc.biscuit.id}>{bisc.biscuit.name}</MenuItem>
                                         )
-                                    })}
+                                    })} */}
                                 </Select>
                             </FormControl>
                             <div className="miqdori">
-                                <TextField className="miqdor_input" onChange={(event) => { this.setState({ miqdor: event.target.value }); }} label="Hodim bali" variant="outlined"  />
-                                <TextField className="miqdor_input" onChange={(event) => { this.setState({ miqdor: event.target.value }); }} label="" variant="outlined" value="Ball"  />
+                                <TextField className="miqdor_input" 
+                                    // onChange={(event) => { this.setState({ miqdor: event.target.value }); }} 
+                                    label="Hodim bali" variant="outlined"
+                                />
+                                <TextField className="miqdor_input" 
+                                    // onChange={(event) => { this.setState({ miqdor: event.target.value }); }} 
+                                    label="" variant="outlined" value="Ball"
+                                />
                             </div>
-                            <TextField onChange={(event) => { this.setState({ comment: event.target.value }); }} label="Izoh" variant="outlined" />
+                            <TextField 
+                                onChange={(event) => { this.setState({ comment: event.target.value }); }} 
+                                label="Izoh" variant="outlined" 
+                            />
                             <div className="modal_close">
                                 <button onClick={this.handleSendBuyurtma}>
                                     Qo`shish

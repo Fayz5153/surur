@@ -22,14 +22,14 @@ function handleChange(country, value) {
   return undefined;
 }
 
-class Buyurtma_tarixi extends Component {
+class Hujjatlar extends Component {
   state = {
     data: [],
     biscuits: [],
     modal: false,
     yangi: null,
     tayyor: "completed",
-    tayyorlanmoqda: "pending",
+    Tasdiqlangan: "pending",
     biscuit: "",
     quantity: "",
     comment: "",
@@ -63,7 +63,7 @@ class Buyurtma_tarixi extends Component {
     const status = {
       yangi: this.state.yangi,
       tayyor: this.state.tayyor,
-      tayyorlanmoqda: this.state.tayyorlanmoqda,
+      Tasdiqlangan: this.state.Tasdiqlangan,
     };
     axios.put("/api/v1/order/client/orders/", status, {
       headers: {
@@ -92,8 +92,7 @@ class Buyurtma_tarixi extends Component {
     window.location.reload(); 
   }
   componentDidMount() {
-    axios
-      .get("/api/v1/order/client/orders/", {
+    axios.get("/api/v1/order/client/orders/", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("accessToken"),
         },
@@ -126,7 +125,7 @@ class Buyurtma_tarixi extends Component {
             type="button"
             onClick={this.handleOpen}
           >
-            Maxsulot qo`shish
+            Yangi harajat yaratish <span>+</span>
           </button>
           <Modal
             aria-labelledby="transition-modal-title"
@@ -142,30 +141,37 @@ class Buyurtma_tarixi extends Component {
           >
             <Fade in={this.state.modal}>
               <div className="modal_input">
-                <h1>Texnologga buyurtma</h1>
-                <FormControl variant="outlined" className="form_select">
-                  <InputLabel id="demo-simple-select-outlined-label">
-                    Maxsulot nomi
-                  </InputLabel>
-                  <Select
-                      labelId="demo-simple-select-outlined-label"
-                      id="demo-simple-select-outlined"
-                      onChange={(event) =>
-                      {this.setState({biscuit: event.target.value})}}
-                      label="Mas'ul shaxs">
-                    {this.state.biscuits.map((bisc)=>{
-                      return(
-                          <MenuItem value={bisc.biscuit.id}>{bisc.biscuit.name}</MenuItem>
-                      )
-                    })}
-                  </Select>
-                </FormControl>
+                <h1>Yangi harajat</h1>
                 <TextField
                   onChange={(event) => {
                     this.setState({ quantity: event.target.value });
                   }}
                   id="outlined-basic"
-                  label="Maxsulot miqdori(kg)"
+                  label="Nomi"
+                  variant="outlined"
+                />
+                <div className="miqdori">
+                  <TextField className="miqdor_input" 
+                    onChange={(event) => { this.setState({ narxi: event.target.value }); }} 
+                    label="Summa" variant="outlined"
+                  />
+                  <FormControl variant="outlined" className="form_select">
+                      <InputLabel> Valyuta </InputLabel>
+                      <Select 
+                        // onChange={(event) => {this.setState({unit_of_measurement: event.target.value})}} 
+                        label="Valyuta"
+                      >
+                        <MenuItem value="Som">So'm</MenuItem>
+                        <MenuItem value="Dollor">Dollor</MenuItem>
+                      </Select>
+                    </FormControl>
+                </div>
+                <TextField
+                  onChange={(event) => {
+                    this.setState({ comment: event.target.value });
+                  }}
+                  id="outlined-basic"
+                  label="Kimdan"
                   variant="outlined"
                 />
                 <TextField
@@ -195,94 +201,80 @@ class Buyurtma_tarixi extends Component {
             </Fade>
           </Modal>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Maxsulot nomi</p>
-              </th>
-              <th>
-                <p> Maxsulot miqdori</p>
-              </th>
-              <th>
-                <p> Tayyor bo'lish sanasi </p>
-              </th>
-              <th>
-                <p> Izox</p>
-              </th>
-              <th>
-                <p> Status</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.props.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>{dat.biscuit.name}</th>
-                    <th>
-                      {dat.quantity.split(".")[0]}{" "}
-                      {dat.biscuit.unit_of_measurement}
-                    </th>
-                    <th>{dateFormat(dat.modified_date, "dd/mm/yyyy")}</th>
-                    <th>{dat.comment}</th>
-                    <th>
-                      <select className="select" name="" id="">
-                        <option value="">
-                          {dat.status === "pending" ? "Tayyorlanmoqda" : null}
-                          {dat.status === "completed" ? "Tayyor" : null}
-                          {dat.status === "new" ? "Yangi" : ""}
-                        </option>
-                        <option value="new">Yangi</option>
-                        <option value="completed">Tayyor</option>
-                        <option value="pending">Tayyorlanmoqda</option>
-                      </select>
-                    </th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.biscuit.name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
+        <div className="table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Nomi </p>
+                </th>
+                <th>
+                  <p> Summa </p>
+                </th>
+                <th>
+                  <p> Valyuta </p>
+                </th>
+                <th>
+                  <p> Status </p>
+                </th>
+                <th>
+                  <p> Masul hodim </p>
+                </th>
+                <th>
+                  <p> Izoh </p>
+                </th>
+                <th>
+                  <p> Muddati </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.props.search === false) {
                   return (
                     <tr>
                       <th>{id + 1}</th>
                       <th>{dat.biscuit.name}</th>
+                      <th>{dat.quantity.split(".")[0]}{" "}</th>
+                      <th>{dat.biscuit.unit_of_measurement}</th>
                       <th>
-                        {dat.quantity.split(".")[0]}{" "}
-                        {dat.biscuit.unit_of_measurement}
+                        {dat.status === "Tasdiqlangan" ? "Tasdiqlangan" : null}
+                        {dat.status === "Bekor qilingan" ? "Bekor qilingan" : null}
+                        {dat.status === "Kutilmoqda" ? "Kutilmoqda" : null}
                       </th>
-                      <th>{dateFormat(dat.modified_date, "dd/mm/yyyy")}</th>
                       <th>{dat.comment}</th>
-                      <th>
-                        <select className="select" name="" id="">
-                          <option value="">
-                            {dat.status === "pending" ? "Tayyorlanmoqda" : null}
-                            {dat.status === "completed" ? "Tayyor" : null}
-                            {dat.status === "new" ? "Yangi" : ""}
-                          </option>
-                          <option value="new">Yangi</option>
-                          <option value="completed">Tayyor</option>
-                          <option value="pending">Tayyorlanmoqda</option>
-                        </select>
-                      </th>
+                      <th>{dateFormat(dat.modified_date, "dd/mm/yyyy")}</th>
                     </tr>
                   );
+                } else {
+                  if (dat.biscuit.name.toUpperCase().includes(this.props.keyword.toUpperCase()) ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.biscuit.name}</th>
+                        <th>{dat.quantity.split(".")[0]}{" "}</th>
+                        <th>{dat.biscuit.unit_of_measurement}</th>
+                        <th>
+                          {dat.status === "Tasdiqlangan" ? "Tasdiqlangan" : null}
+                          {dat.status === "Bekor qilingan" ? "Bekor qilingan" : null}
+                          {dat.status === "Kutilmoqda" ? "Kutilmoqda" : null}
+                        </th>
+                        <th>{dat.comment}</th>
+                        <th>{dateFormat(dat.modified_date, "dd/mm/yyyy")}</th>
+                      </tr>
+                    );
+                  }
                 }
-              }
-            })}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }
 }
 
-export default Buyurtma_tarixi;
+export default Hujjatlar;

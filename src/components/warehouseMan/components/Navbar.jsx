@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
-//Import Img
+//Import Imges
 import logo from "./icons/Logo.svg";
 import Icon1 from "./icons/icon1.svg";
 import Icon2 from "./icons/icon2.svg";

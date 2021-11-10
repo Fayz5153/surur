@@ -28,15 +28,6 @@ class Yaroqsiz extends Component {
             biscuits: [],
             modal: false,
             check: false,
-            yangi: null,
-            tayyor: "completed",
-            tayyorlanmoqda: "pending",
-            biscuit: "",
-            quantity: "",
-            comment: "",
-            complete_date: "",
-            complete_at: "",
-            id: "",
             miqdor: 0,
             narxi: 0,
          }
@@ -68,61 +59,6 @@ class Yaroqsiz extends Component {
           overlayClassName: "overlay-custom-class-name",
         });
     };
-    handleSendStatus = () => {
-        const status = {
-          yangi: this.state.yangi,
-          tayyor: this.state.tayyor,
-          tayyorlanmoqda: this.state.tayyorlanmoqda,
-        };
-        axios.put("/api/v1/order/client/orders/", status, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("accessToken"),
-          },
-        });
-        this.refreshPage()
-    };
-    handleSendBuyurtma = () => {
-        const buyurtma = {
-          biscuit: this.state.biscuit,
-          quantity: this.state.quantity,
-          comment: this.state.comment,
-          complete_at: this.state.complete_at,
-        };
-        axios.post("api/v1/order/client/orders/", buyurtma, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("accessToken"),
-          },
-        });
-        this.submit();
-        this.handleClose()
-        this.refreshPage()
-    };
-    refreshPage = () => { 
-        window.location.reload(); 
-    }
-    componentDidMount() {
-        axios
-          .get("/api/v1/order/client/orders/", {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("accessToken"),
-            },
-          })
-          .then((res) => {
-            const data = res.data;
-            this.setState({ data });
-          });
-        axios
-          .get("/api/v1/warehouse/biscuits/", {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("accessToken"),
-            },
-          })
-          .then((res) => {
-            const biscuits = res.data;
-            this.setState({ biscuits });
-            console.log(biscuits)
-          });
-    }
     render() { 
         const zarar = this.state.miqdor * this.state.narxi
         return ( 
@@ -155,29 +91,44 @@ class Yaroqsiz extends Component {
                                 <InputLabel id="demo-simple-select-outlined-label">
                                     Maxsulot nomi
                                 </InputLabel>
-                                <Select onChange={(event) => {this.setState({biscuit: event.target.value})}} label="Mas'ul shaxs">
-                                    {this.state.biscuits.map((bisc)=>{
+                                <Select 
+                                    // onChange={(event) => {this.setState({biscuit: event.target.value})}} 
+                                    label="Mas'ul shaxs"
+                                >
+                                    {/* {this.state.biscuits.map((bisc)=>{
                                         return(
                                             <MenuItem value={bisc.biscuit.id}>{bisc.biscuit.name}</MenuItem>
                                         )
-                                    })}
+                                    })} */}
                                 </Select>
                             </FormControl>
                             <div className="miqdori">
-                                <TextField className="miqdor_input" onChange={(event) => { this.setState({ miqdor: event.target.value }); }} label="Miqdori" variant="outlined"  />
+                                <TextField className="miqdor_input" 
+                                    onChange={(event) => { this.setState({ miqdor: event.target.value }); }} 
+                                    label="Miqdori" variant="outlined"
+                                />
                                 <FormControl variant="outlined" className="form_select">
                                     <InputLabel> O'lchov b. </InputLabel>
-                                    <Select onChange={(event) => {this.setState({unit_of_measurement: event.target.value})}} label="O'lchov b.">
+                                    <Select 
+                                        //onChange={(event) => {this.setState({unit_of_measurement: event.target.value})}} 
+                                        label="O'lchov b."
+                                    >
                                         <MenuItem value="Kg">Kg</MenuItem>
                                         <MenuItem value="Dona">Dona</MenuItem>
                                     </Select>
                                 </FormControl>
                             </div>
                             <div className="miqdori">
-                                <TextField className="miqdor_input" onChange={(event) => { this.setState({ narxi: event.target.value }); }} label="Sotish narxi" variant="outlined"  />
+                                <TextField className="miqdor_input" 
+                                    onChange={(event) => { this.setState({ narxi: event.target.value }); }} 
+                                    label="Sotish narxi" variant="outlined"
+                                />
                                 <FormControl variant="outlined" className="form_select">
                                     <InputLabel> Valyuta </InputLabel>
-                                    <Select onChange={(event) => {this.setState({unit_of_measurement: event.target.value})}} label="Valyuta">
+                                    <Select 
+                                        // onChange={(event) => {this.setState({unit_of_measurement: event.target.value})}} 
+                                        label="Valyuta"
+                                    >
                                         <MenuItem value="Som">So'm</MenuItem>
                                         <MenuItem value="Dollor">Dollor</MenuItem>
                                     </Select>
@@ -192,12 +143,21 @@ class Yaroqsiz extends Component {
                             />
                             {this.state.check === false
                                 ? null
-                                :<TextField onChange={(event) => { this.setState({ comment: event.target.value }); }} label="Zarar summasi" value={`${zarar} so'm`} className="zarar" variant="outlined" />
+                                :<TextField 
+                                    // onChange={(event) => { this.setState({ comment: event.target.value }); }} 
+                                    label="Zarar summasi" value={`${zarar} so'm`} className="zarar" variant="outlined"
+                                />
                             }
-                            <TextField onChange={(event) => { this.setState({ comment: event.target.value }); }} label="Javobgar shaxs" variant="outlined" />
-                            <TextField onChange={(event) => { this.setState({ comment: event.target.value }); }} label="Izoh" variant="outlined" />
+                            <TextField 
+                                // onChange={(event) => { this.setState({ comment: event.target.value }); }} 
+                                label="Javobgar shaxs" variant="outlined" 
+                            />
+                            <TextField 
+                                // onChange={(event) => { this.setState({ comment: event.target.value }); }} 
+                                label="Izoh" variant="outlined" 
+                            />
                             <div className="modal_close">
-                                <button onClick={this.handleSendBuyurtma}>
+                                <button>
                                     Qo`shish
                                 </button>
                             </div>

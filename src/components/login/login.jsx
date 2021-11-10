@@ -39,7 +39,7 @@ class Login extends Component {
         } else if (response.data.role === "warehouseman") {
           this.props.history.push("/warehouseMan");
         } else if (response.data.role === "texnolog") {
-          this.props.history.push("/technolog");
+          this.props.history.push("/technolog/retsept");
         } else if (response.data.role === "sifatnazorati") {
           this.props.history.push("/sifatNazorati");
         } else {
