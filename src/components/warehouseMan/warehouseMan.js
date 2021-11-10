@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Maxsulotlar from "./components/Maxsulotlar";
 import search from "./components/icons/search.svg";
 import user_pic from "./components/icons/user_pic.svg";
-import Maxsulotlar from "./components/Maxsulotlar";
-import TayyorMaxsulotlar from "./components/tayyor_maxsulot_ombori";
-import Drabilka_ombori from "./components/drabilka_ombori";
-import Vazvrat_ombori from "./components/vazvrat_ombori";
+import VazvratOmbori from "./components/vazvrat_ombori";
+import QadoqlarKirim from "./components/qadoqalar_kirim";
+import DrabilkaOmbori from "./components/drabilka_ombori";
 import QadoqlarChiqim from "./components/qadoqalar_chiqim";
-import Qadoqlar_kirim from "./components/qadoqalar_kirim";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import TayyorMaxsulotlar from "./components/tayyor_maxsulot_ombori";
 
 class WarehouseMan extends Component {
   state = {
@@ -77,7 +77,7 @@ class WarehouseMan extends Component {
                     />
                   </Route>
                   <Route path={`${path}/qadoqlarkirim`}>
-                    <Qadoqlar_kirim
+                    <QadoqlarKirim
                       keyword={this.state.key}
                       search={this.state.search}
                       url={path}
@@ -108,13 +108,13 @@ class WarehouseMan extends Component {
                     />
                   </Route>
                   <Route path={`${path}/drabilka`}>
-                    <Drabilka_ombori
+                    <DrabilkaOmbori
                       keyword={this.state.key}
                       search={this.state.search}
                     />
                   </Route>
                   <Route path={`${path}/vazvrat`}>
-                    <Vazvrat_ombori
+                    <VazvratOmbori
                       keyword={this.state.key}
                       search={this.state.search}
                     />

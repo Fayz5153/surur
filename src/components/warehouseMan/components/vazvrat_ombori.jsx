@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
-import TextField from "@material-ui/core/TextField";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import Data_pick from "./data_pick";
+import DataPick from "./data_pick";
 import dateFormat from "dateformat";
-import "react-confirm-alert/src/react-confirm-alert.css";
-import InputLabel from "@material-ui/core/InputLabel";
+import Fade from "@material-ui/core/Fade";
+import Modal from "@material-ui/core/Modal";
 import Select from "@material-ui/core/Select";
+import Backdrop from "@material-ui/core/Backdrop";
 import MenuItem from "@material-ui/core/MenuItem";
+import TextField from "@material-ui/core/TextField";
+import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
+import "react-confirm-alert/src/react-confirm-alert.css";
+// import Autocomplete from "@material-ui/lab/Autocomplete";
 
-class Vazvrat_ombori extends Component {
+class VazvratOmbori extends Component {
   state = {
     data: [],
     clients: [],
@@ -92,7 +92,7 @@ class Vazvrat_ombori extends Component {
     return (
       <React.Fragment>
         <div className="buyurtma_btn">
-          <Data_pick />
+          <DataPick />
           <button
             className="modal_open"
             type="button"
@@ -228,4 +228,4 @@ class Vazvrat_ombori extends Component {
   }
 }
 
-export default Vazvrat_ombori;
+export default VazvratOmbori;

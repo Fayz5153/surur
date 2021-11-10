@@ -10,9 +10,9 @@ const Data_pick = () => {
     <React.Fragment>
       <div className="data">
         <img src={calendar} alt="" />
-        <a href="#">Kun</a>
-        <a href="#">Hafta</a>
-        <a href="#">Oy</a>
+        <a href="#kun">Kun</a>
+        <a href="#hafta">Hafta</a>
+        <a href="#oy">Oy</a>
         <DatePicker
           selected={startDate}
           onChange={(date) => setStartDate(date)}

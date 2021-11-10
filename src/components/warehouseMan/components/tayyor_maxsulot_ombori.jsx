@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Data_pick from "./data_pick";
+import DataPick from "./data_pick";
 
 class TayyorMaxsulotlar extends Component {
   state = {
@@ -23,7 +23,7 @@ class TayyorMaxsulotlar extends Component {
   render() {
     return (
       <React.Fragment>
-        <Data_pick />
+        <DataPick />
         <table>
           <thead>
             <tr>

@@ -1,19 +1,22 @@
 import React, { Component } from "react";
-import Data_pick from "./data_pick";
 import axios from "axios";
+import Data_pick from "./data_pick";
 import dateFormat from "dateformat";
-import TextField from "@material-ui/core/TextField";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import { confirmAlert } from "react-confirm-alert";
-import "react-confirm-alert/src/react-confirm-alert.css";
-import tasdiq from "./icons/tasdiq.svg";
-import InputLabel from "@material-ui/core/InputLabel";
+import Modal from "@material-ui/core/Modal";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import Backdrop from "@material-ui/core/Backdrop";
+import { confirmAlert } from "react-confirm-alert";
+import TextField from "@material-ui/core/TextField";
+import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
+
+//Import css
+import "react-confirm-alert/src/react-confirm-alert.css";
+
+//Import Images
+import tasdiq from "./icons/tasdiq.svg";
 
 function handleChange(country, value) {
   return undefined;

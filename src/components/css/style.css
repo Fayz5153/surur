@@ -986,12 +986,12 @@ table tbody tr:last-child td:last-child {
 }
 
 .modal_open {
-  padding: 5px 10px 10px 10px;
+  padding: 10px;
   margin: 0 10px;
   background: #217CAE;
+  border-radius: 11px;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -1003,6 +1003,36 @@ table tbody tr:last-child td:last-child {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal_open span {
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 29px;
+  color: #217CAE;
+  background: #E8F7FF;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30px;
+  height: 25px;
+  padding-bottom: 5px;
+  text-align: center;
+  margin-left: 10px;
 }
 
 .modal_open:active {
@@ -1022,7 +1052,7 @@ table tbody tr:last-child td:last-child {
   background: #FFFFFF;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-  border-radius: 24px;
+  border-radius: 11px;
   padding: 10px 20px 30px 20px;
 }
 
@@ -1039,6 +1069,35 @@ table tbody tr:last-child td:last-child {
   color: #217CAE;
 }
 
+.modal_input .MuiCheckbox-colorPrimary.Mui-checked {
+  color: #217CAE;
+}
+
+.modal_input .zarar input {
+  color: red !important;
+}
+
+.modal_input .zarar .MuiFormLabel-root {
+  color: red;
+}
+
+.modal_input .zarar .MuiOutlinedInput-notchedOutline {
+  border-color: red;
+}
+
+.modal_input .zarar .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: red;
+}
+
+.modal_input .MuiTypography-body1 {
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  color: #5C636A;
+}
+
 .modal_input .MuiFormControl-root {
   margin: 20px 0 0 0;
 }
@@ -1046,7 +1105,7 @@ table tbody tr:last-child td:last-child {
 .modal_input .MuiOutlinedInput-notchedOutline {
   border-color: #C4C4C4;
   border-width: 1px;
-  border-radius: 25px;
+  border-radius: 8px;
 }
 
 .modal_input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
@@ -1137,10 +1196,10 @@ table tbody tr:last-child td:last-child {
 .modal_close button {
   width: 185px;
   height: 45px;
-  background: #80C7EC;
+  background: #217CAE;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 50px;
+  border-radius: 11px;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;

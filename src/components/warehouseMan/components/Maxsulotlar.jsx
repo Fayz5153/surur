@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
-import TextField from "@material-ui/core/TextField";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
+import DataPick from "./data_pick";
 import Fade from "@material-ui/core/Fade";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import Data_pick from "./data_pick";
-import { confirmAlert } from "react-confirm-alert";
-import "react-confirm-alert/src/react-confirm-alert.css";
-import tasdiq from "./icons/tasdiq.svg";
-import InputLabel from "@material-ui/core/InputLabel";
+import Modal from "@material-ui/core/Modal";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import Backdrop from "@material-ui/core/Backdrop";
+import { confirmAlert } from "react-confirm-alert";
+import TextField from "@material-ui/core/TextField";
+import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
+// import Autocomplete from "@material-ui/lab/Autocomplete";
+
+//Import css
+import "react-confirm-alert/src/react-confirm-alert.css";
+
+//Import Image
+import tasdiq from "./icons/tasdiq.svg";
 
 class Maxsulotlar extends Component {
   state = {
@@ -104,7 +108,7 @@ class Maxsulotlar extends Component {
     return (
       <React.Fragment>
         <div className="buyurtma_btn">
-          <Data_pick />
+          <DataPick />
           <div className="buyurtma_btns">
             <button
               className="modal_open"

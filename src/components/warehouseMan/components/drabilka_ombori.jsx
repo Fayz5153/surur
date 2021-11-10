@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import dateFormat from "dateformat";
 
-class Drabilka_ombori extends Component {
+class DrabilkaOmbori extends Component {
   state = {
     data: [],
   };
@@ -19,7 +18,7 @@ class Drabilka_ombori extends Component {
         this.setState({ data });
       });
   }
-  render(props) {
+  render() {
     return (
       <React.Fragment>
         <table>
@@ -74,4 +73,4 @@ class Drabilka_ombori extends Component {
   }
 }
 
-export default Drabilka_ombori;
+export default DrabilkaOmbori;

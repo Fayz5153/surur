@@ -1,7 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import App from "./App";
 import axios from "axios";
+import ReactDOM from "react-dom";
 import { baseUrl } from "./constants";
 axios.defaults.baseURL = baseUrl;
 axios.interceptors.response.use(

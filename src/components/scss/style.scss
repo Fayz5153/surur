@@ -722,11 +722,11 @@ table{
 	}
 }
 .modal_open{
-	padding: 5px 10px 10px 10px;
+	padding: 10px;
 	margin: 0 10px;
 	background: #217CAE;
+	border-radius: 11px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-	border-radius: 8px;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
@@ -734,6 +734,26 @@ table{
 	color: #FFFFFF;
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	span{
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 29px;
+		color: #217CAE;
+		background: #E8F7FF;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		border-radius: 8px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30px;
+		height: 25px;
+    	padding-bottom: 5px;
+		text-align: center;
+		margin-left: 10px;
+	}
 	// p{
 	// 	margin-right: 5px;
 	// 	background: #80C7EC;
@@ -754,7 +774,7 @@ table{
 	height: auto;
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-	border-radius: 24px;
+	border-radius: 11px;
 	padding: 10px 20px 30px 20px;
 	h1{
 		font-style: normal;
@@ -767,13 +787,38 @@ table{
 	input{
 		color: #217CAE;
 	}
+	.MuiCheckbox-colorPrimary.Mui-checked {
+		color: #217CAE;
+	}
+	.zarar{
+		input{
+			color: red !important;
+		}
+		.MuiFormLabel-root {
+			color: red;
+		}
+		.MuiOutlinedInput-notchedOutline {
+			border-color: red;
+		}
+		.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{
+			border-color: red;
+		}
+	}
+	.MuiTypography-body1{
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		line-height: 17px;
+		color: #5C636A;
+	}
 	.MuiFormControl-root {
 		margin: 20px 0 0 0;
 	}
 	.MuiOutlinedInput-notchedOutline {
 		border-color: #C4C4C4;
 		border-width: 1px;
-		border-radius: 25px;
+		border-radius: 8px;
   	}
 	.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
 		border-width: 1px;
@@ -839,9 +884,9 @@ table{
 	button{
 		width: 185px;
 		height: 45px;
-		background: #80C7EC;
+		background: #217CAE;
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-		border-radius: 50px;
+		border-radius: 11px;
 		font-style: normal;
 		font-weight: 500;
 		font-size: 13px;

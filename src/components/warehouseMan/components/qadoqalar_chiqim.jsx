@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Data_pick from "./data_pick";
 import axios from "axios";
+import DataPick from "./data_pick";
 import { NavLink } from "react-router-dom";
 
 class QadoqlarChiqim extends Component {
@@ -25,7 +25,7 @@ class QadoqlarChiqim extends Component {
     return (
       <React.Fragment>
         <div className="buyurtma_btn">
-          <Data_pick />
+          <DataPick />
           <div className="qadoq_btn">
             <NavLink
               activeClassName="qadoq_active"

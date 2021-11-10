@@ -1,15 +1,17 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 import "./login.css";
+
 import logo from "./Logo.svg";
 import login from "./login.svg";
 import parol from "./parol.svg";
-import axios from "axios";
 
 class Login extends Component {
   state = {
-    phone_number: "",
     password: "",
     error_msg: "",
+    phone_number: "",
   };
   handleInput = (e) => {
     const { name, value } = e.target;
@@ -38,6 +40,8 @@ class Login extends Component {
           this.props.history.push("/warehouseMan");
         } else if (response.data.role === "texnolog") {
           this.props.history.push("/technolog");
+        } else if (response.data.role === "sifatnazorati") {
+          this.props.history.push("/sifatNazorati");
         } else {
           this.setState({ error_msg: "Bunday foydalanuvchi mavjud emas!" });
         }

@@ -1,20 +1,22 @@
 import React, { Component } from "react";
-import Data_pick from "./data_pick";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
-import TextField from "@material-ui/core/TextField";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import { confirmAlert } from "react-confirm-alert";
-import "react-confirm-alert/src/react-confirm-alert.css";
+import DataPick from "./data_pick";
 import tasdiq from "./icons/tasdiq.svg";
-import InputLabel from "@material-ui/core/InputLabel";
+import Fade from "@material-ui/core/Fade";
+import { NavLink } from "react-router-dom";
+import Modal from "@material-ui/core/Modal";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import Backdrop from "@material-ui/core/Backdrop";
+import { confirmAlert } from "react-confirm-alert";
+import TextField from "@material-ui/core/TextField";
+import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 
-class Qadoqlar_kirim extends Component {
+//Import css
+import "react-confirm-alert/src/react-confirm-alert.css";
+
+class QadoqlarKirim extends Component {
   state = {
     data: [],
     biscuits: [],
@@ -106,7 +108,7 @@ class Qadoqlar_kirim extends Component {
     return (
       <React.Fragment>
         <div className="buyurtma_btn">
-          <Data_pick />
+          <DataPick />
           <div className="qadoq_btn">
             <NavLink
               activeClassName="qadoq_active"
@@ -265,4 +267,4 @@ class Qadoqlar_kirim extends Component {
   }
 }
 
-export default Qadoqlar_kirim;
+export default QadoqlarKirim;
