@@ -42,6 +42,8 @@ class Login extends Component {
           this.props.history.push("/technolog/retsept");
         } else if (response.data.role === "sifatnazorati") {
           this.props.history.push("/sifatNazorati");
+        } else if (response.data.role === "ishBoshligi") {
+          this.props.history.push("/ishBoshligi/rejalar");
         } else {
           this.setState({ error_msg: "Bunday foydalanuvchi mavjud emas!" });
         }

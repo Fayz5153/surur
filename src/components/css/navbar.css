@@ -48,21 +48,18 @@
   -webkit-transition: 0.4s;
   transition: 0.4s;
   height: 180px !important;
-  background: linear-gradient(265.94deg, #6CBEEB -1.47%, #24A0E4 97.22%);
 }
 
 .link_active2 {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   height: 180px !important;
-  background: linear-gradient(265.94deg, #6CBEEB -1.47%, #24A0E4 97.22%);
 }
 
 .link_active1 {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   height: 330px !important;
-  background: linear-gradient(265.94deg, #6CBEEB -1.47%, #24A0E4 97.22%);
 }
 
 nav {
