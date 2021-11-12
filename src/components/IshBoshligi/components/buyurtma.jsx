@@ -22,7 +22,7 @@ function handleChange(country, value) {
   return undefined;
 }
 
-class Qaytaishlash extends Component {
+class Buyurtma extends Component {
   state = {
     data: [],
     biscuits: [],
@@ -121,6 +121,92 @@ class Qaytaishlash extends Component {
           <div className="data_div">
             <Data_pick />
           </div>
+          <button
+            className="modal_open"
+            type="button"
+            onClick={this.handleOpen}
+          >
+            Yangi buyurtma <span>+</span>
+          </button>
+          <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            open={this.state.modal}
+            onClose={this.handleClose}
+            className="dflax"
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={this.state.modal}>
+              <div className="modal_input">
+                <h1>Yangi buyurtma</h1>
+                <TextField
+                  onChange={(event) => {
+                    this.setState({ quantity: event.target.value });
+                  }}
+                  id="outlined-basic"
+                  label="Nomi"
+                  variant="outlined"
+                />
+                <div className="miqdori">
+                  <TextField className="miqdor_input" 
+                    onChange={(event) => { this.setState({ narxi: event.target.value }); }} 
+                    label="Miqdori" variant="outlined"
+                  />
+                  <FormControl variant="outlined" className="form_select">
+                      <InputLabel> O'lchov b. </InputLabel>
+                      <Select 
+                        // onChange={(event) => {this.setState({unit_of_measurement: event.target.value})}} 
+                        label="O'lchov b."
+                      >
+                        <MenuItem value="Kg">Kg</MenuItem>
+                        <MenuItem value="Dona">Dona</MenuItem>
+                      </Select>
+                    </FormControl>
+                </div>
+                <FormControl variant="outlined" className="form_select">
+                  <InputLabel id="demo-simple-select-outlined-label">
+                    Kimga biriktirilgan
+                  </InputLabel>
+                  <Select
+                    // onChange={(event) => {this.setState({biscuit: event.target.value})}}
+                    label="Kimga biriktirilgan">
+                    {this.state.biscuits.map((bisc)=>{
+                      return(
+                          <MenuItem value={bisc.biscuit.id}>{bisc.biscuit.name}</MenuItem>
+                      )
+                    })}
+                  </Select>
+                </FormControl>
+                <TextField
+                  onChange={(event) => {
+                    this.setState({ complete_at: event.target.value });
+                  }}
+                  className="hodim_data"
+                  type="date"
+                  id="outlined-basic"
+                  label="Sana"
+                  variant="outlined"
+                />
+                <TextField
+                  onChange={(event) => {
+                    this.setState({ comment: event.target.value });
+                  }}
+                  id="outlined-basic"
+                  label="Izoh"
+                  variant="outlined"
+                />
+                <div className="modal_close">
+                  <button onClick={this.handleSendBuyurtma}>
+                    Buyurtma berish
+                  </button>
+                </div>
+              </div>
+            </Fade>
+          </Modal>
         </div>
         <div className="table">
           <table>
@@ -163,7 +249,7 @@ class Qaytaishlash extends Component {
                           <option value="">
                             {dat.status === "Tayyorlandi" ? "Tayyorlandi" : null}
                             {dat.status === "Qabul qilindi" ? "Qabul qilindi" : null}
-                            {dat.status === "Kutilmoqda" ? "Kutilmoqda" : ""}
+                            {dat.status === "Kutilmoqda" ? "Kutilmoqda" : null}
                           </option>
                           <option value="Tayyorlandi">Tayyorlandi</option>
                           <option value="Qabul qilindi">Qabul qilindi</option>
@@ -213,4 +299,4 @@ class Qaytaishlash extends Component {
   }
 }
 
-export default Qaytaishlash;
+export default Buyurtma;

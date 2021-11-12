@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import Rejalar from "./components/rejalar";
+import Buyurtma from "./components/buyurtma";
 import Hujjatlar from "./components/hujjatlar";
 import Takliflar from "./components/takliflar";
 import search from "./components/icons/search.svg";
-import Qaytaishlash from "./components/qaytaishlash";
 import user_pic from "./components/icons/user_pic.svg";
 import ReajalarTarixi from "./components/rejalartarixi";
+import BuyurtmaTarixi from "./components/buyurtmaTarixi";
 import HujjatlarTarixi from "./components/hujjatlartarixi";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import QaytaishlashTarixi from "./components/qaytaishlashtarixi";
 
 class IshBoshligi extends Component {
   state = {
@@ -89,13 +89,13 @@ class IshBoshligi extends Component {
                         />
                     </Route>
                     <Route exact path={`${path}/buyurtmalar`}>
-                        <Qaytaishlash
+                        <Buyurtma
                         keyword={this.state.key}
                         search={this.state.search}
                         />
                     </Route>
                     <Route exact path={`${path}/buyurtmalartarixi`}>
-                        <QaytaishlashTarixi
+                        <BuyurtmaTarixi
                         keyword={this.state.key}
                         search={this.state.search}
                         />

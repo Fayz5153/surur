@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import dateFormat from "dateformat";
 
-class QaytaishlashTarixi extends Component {
+class BuyurtmaTarixi extends Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -88,4 +88,4 @@ class QaytaishlashTarixi extends Component {
     }
 }
  
-export default QaytaishlashTarixi;
+export default BuyurtmaTarixi;
