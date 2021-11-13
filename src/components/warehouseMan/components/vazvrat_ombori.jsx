@@ -220,34 +220,6 @@ class VazvratOmbori extends Component {
 									)
 								}
 							}
-              // return(
-              //   <>
-              //     {this.props.search === false 
-              //     ? <tr>
-              //        <th>{id+1}</th>
-              //        <th>{dat.biscuit.name}</th>
-              //        <th>{dat.client_first_name} {dat.client_last_name}</th>
-              //        <th>{dat.quantity.split(".")[0]} {dat.biscuit.unit_of_measurement}</th>
-              //        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-              //       </tr>
-              //     : dat.biscuit.name.toUpperCase().includes(this.props.keyword.toUpperCase())
-              //     ? <tr>
-              //         <th>{id+1}</th>
-              //         <th>{dat.biscuit.name}</th>
-              //         <th>{dat.client_first_name} {dat.client_last_name}</th>
-              //         <th>{dat.quantity.split(".")[0]} {dat.biscuit.unit_of_measurement}</th>
-              //         <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-              //       </tr>
-              //     : <tr>
-              //         <th>{id+1}</th>
-              //         <th>{dat.biscuit.name}</th>
-              //         <th>{dat.client_first_name} {dat.client_last_name}</th>
-              //         <th>{dat.quantity.split(".")[0]} {dat.biscuit.unit_of_measurement}</th>
-              //         <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-              //       </tr>
-              //   }
-              //   </>
-              // )
 						})}
           </tbody>
         </table>

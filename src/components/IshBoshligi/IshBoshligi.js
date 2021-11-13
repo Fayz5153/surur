@@ -39,6 +39,8 @@ class IshBoshligi extends Component {
             </div>
             <div className="asos_2">
               <div className="up_nav">
+                <div></div>
+                <div className="up_nav_2">
                 <button onClick={this.handlemenu} className="dnone">
                   <span></span>
                   <span></span>
@@ -46,13 +48,8 @@ class IshBoshligi extends Component {
                 </button>
                 <div className="search">
                   <input
-                    type="search"
-                    name=""
-                    placeholder="Izlash..."
-                    id=""
-                    onChange={(event) => {
-                      this.setState({ key: event.target.value });
-                    }}
+                    onChange={(event) => { this.setState({ key: event.target.value }); }}
+                    type="search" name="" placeholder="Izlash..." id=""
                   />
                   <button>
                     <img src={search} alt="" />
@@ -61,6 +58,7 @@ class IshBoshligi extends Component {
                 <a className="user_pic" href="/">
                   <img src={user_pic} alt="" />
                 </a>
+                </div>
               </div>
               <div className="switchs">
                 <Switch>
