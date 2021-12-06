@@ -33,62 +33,42 @@ class Kletlar extends Component {
             sheet="tablexls"
             buttonText="Excelga export"/>
         </div>
-        <table id="t_Excel">
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Firma nomi</p>
-              </th>
-              <th>
-                <p> Rahbar ismi familyasi</p>
-              </th>
-              <th>
-                <p> Telefon raqami</p>
-              </th>
-              <th>
-                <p> Kompaniya manzili</p>
-              </th>
-              <th>
-                <p> XR</p>
-              </th>
-              <th>
-                <p> MFO</p>
-              </th>
-              <th>
-                <p> INN</p>
-              </th>
-              <th>
-                <p> Firma qo'shilgan sana</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.props.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>{dat.company}</th>
-                    <th>
-                      {dat.first_name} {dat.last_name}
-                    </th>
-                    <th>{dat.phone_number}</th>
-                    <th>{dat.address}</th>
-                    <th>{dat.x_p}</th>
-                    <th>{dat.m_f_o}</th>
-                    <th>{dat.inn}</th>
-                    <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.first_name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
+        <div className="table">
+          <table id="t_Excel">
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Firma nomi</p>
+                </th>
+                <th>
+                  <p> Rahbar ismi familyasi</p>
+                </th>
+                <th>
+                  <p> Telefon raqami</p>
+                </th>
+                <th>
+                  <p> Kompaniya manzili</p>
+                </th>
+                <th>
+                  <p> XR</p>
+                </th>
+                <th>
+                  <p> MFO</p>
+                </th>
+                <th>
+                  <p> INN</p>
+                </th>
+                <th>
+                  <p> Firma qo'shilgan sana</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.props.search === false) {
                   return (
                     <tr>
                       <th>{id + 1}</th>
@@ -104,74 +84,96 @@ class Kletlar extends Component {
                       <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
                     </tr>
                   );
+                } else {
+                  if (
+                    dat.first_name
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.company}</th>
+                        <th>
+                          {dat.first_name} {dat.last_name}
+                        </th>
+                        <th>{dat.phone_number}</th>
+                        <th>{dat.address}</th>
+                        <th>{dat.x_p}</th>
+                        <th>{dat.m_f_o}</th>
+                        <th>{dat.inn}</th>
+                        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
+                      </tr>
+                    );
+                  }
+                  if (
+                    dat.last_name
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.company}</th>
+                        <th>
+                          {dat.first_name} {dat.last_name}
+                        </th>
+                        <th>{dat.phone_number}</th>
+                        <th>{dat.address}</th>
+                        <th>{dat.x_p}</th>
+                        <th>{dat.m_f_o}</th>
+                        <th>{dat.inn}</th>
+                        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
+                      </tr>
+                    );
+                  }
+                  if (
+                    dat.company
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.company}</th>
+                        <th>
+                          {dat.first_name} {dat.last_name}
+                        </th>
+                        <th>{dat.phone_number}</th>
+                        <th>{dat.address}</th>
+                        <th>{dat.x_p}</th>
+                        <th>{dat.m_f_o}</th>
+                        <th>{dat.inn}</th>
+                        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
+                      </tr>
+                    );
+                  }
+                  if (
+                    dat.address
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.company}</th>
+                        <th>
+                          {dat.first_name} {dat.last_name}
+                        </th>
+                        <th>{dat.phone_number}</th>
+                        <th>{dat.address}</th>
+                        <th>{dat.x_p}</th>
+                        <th>{dat.m_f_o}</th>
+                        <th>{dat.inn}</th>
+                        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
+                      </tr>
+                    );
+                  }
                 }
-                if (
-                  dat.last_name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
-                  return (
-                    <tr>
-                      <th>{id + 1}</th>
-                      <th>{dat.company}</th>
-                      <th>
-                        {dat.first_name} {dat.last_name}
-                      </th>
-                      <th>{dat.phone_number}</th>
-                      <th>{dat.address}</th>
-                      <th>{dat.x_p}</th>
-                      <th>{dat.m_f_o}</th>
-                      <th>{dat.inn}</th>
-                      <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-                    </tr>
-                  );
-                }
-                if (
-                  dat.company
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
-                  return (
-                    <tr>
-                      <th>{id + 1}</th>
-                      <th>{dat.company}</th>
-                      <th>
-                        {dat.first_name} {dat.last_name}
-                      </th>
-                      <th>{dat.phone_number}</th>
-                      <th>{dat.address}</th>
-                      <th>{dat.x_p}</th>
-                      <th>{dat.m_f_o}</th>
-                      <th>{dat.inn}</th>
-                      <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-                    </tr>
-                  );
-                }
-                if (
-                  dat.address
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
-                  return (
-                    <tr>
-                      <th>{id + 1}</th>
-                      <th>{dat.company}</th>
-                      <th>
-                        {dat.first_name} {dat.last_name}
-                      </th>
-                      <th>{dat.phone_number}</th>
-                      <th>{dat.address}</th>
-                      <th>{dat.x_p}</th>
-                      <th>{dat.m_f_o}</th>
-                      <th>{dat.inn}</th>
-                      <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-                    </tr>
-                  );
-                }
-              }
-            })}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

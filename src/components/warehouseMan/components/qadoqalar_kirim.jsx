@@ -212,56 +212,58 @@ class QadoqlarKirim extends Component {
             </Modal>
           </div>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Qadoq nomi</p>
-              </th>
-              <th>
-                <p> Yetkazib beruvchi</p>
-              </th>
-              <th>
-                <p> Izoh</p>
-              </th>
-              <th>
-                <p> Qadoq miqdori</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id)=>{
-								if (this.props.search === false){
-									return(
-										<tr>
-												<th>{id+1}</th>
-												<th>{dat.type_of_box}</th>
-												<th>{dat.supplier_name}</th>
-												<th>{dat.note}</th>
-												<th>{dat.total}</th>
-										</tr>
-									)
-								}
-									else{
-										if ( dat.type_of_box.toUpperCase().includes(this.props.keyword.toUpperCase())){
-											return(
-											<tr>
-												<th>{id+1}</th>
-												<th>{dat.type_of_box}</th>
-												<th>{dat.supplier_name}</th>
-												<th>{dat.note}</th>
-												<th>{dat.total}</th>
-										</tr>
-										)
-									}
-								}
-								
-						})}
-          </tbody>
-        </table>
+        <div className="table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Qadoq nomi</p>
+                </th>
+                <th>
+                  <p> Yetkazib beruvchi</p>
+                </th>
+                <th>
+                  <p> Izoh</p>
+                </th>
+                <th>
+                  <p> Qadoq miqdori</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id)=>{
+                  if (this.props.search === false){
+                    return(
+                      <tr>
+                          <th>{id+1}</th>
+                          <th>{dat.type_of_box}</th>
+                          <th>{dat.supplier_name}</th>
+                          <th>{dat.note}</th>
+                          <th>{dat.total}</th>
+                      </tr>
+                    )
+                  }
+                    else{
+                      if ( dat.type_of_box.toUpperCase().includes(this.props.keyword.toUpperCase())){
+                        return(
+                        <tr>
+                          <th>{id+1}</th>
+                          <th>{dat.type_of_box}</th>
+                          <th>{dat.supplier_name}</th>
+                          <th>{dat.note}</th>
+                          <th>{dat.total}</th>
+                      </tr>
+                      )
+                    }
+                  }
+                  
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

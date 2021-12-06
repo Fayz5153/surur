@@ -100,66 +100,36 @@ class Hodimlar_royhati extends Component {
             sheet="tablexls"
             buttonText="Excelga export"/>
         </div>
-        <table id="t_Excel">
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Ismi familyasi</p>
-              </th>
-              <th>
-                <p> Lavozimi</p>
-              </th>
-              <th>
-                <p> Oylik ma'oshi</p>
-              </th>
-              <th>
-                <p> Yashash manzili</p>
-              </th>
-              <th>
-                <p> Telefon raqami</p>
-              </th>
-              <th>
-                <p> Hodimni o'chirish</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.props.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>
-                      {dat.first_name} {dat.last_name}
-                    </th>
-                    <th>
-                      {dat.role === "director" ? "Direktor":null}
-                      {dat.role === "warehouseman" ? "Omborchi":null}
-                      {dat.role === "staff" ? "Oddiy ishchi":null}
-                      {dat.role === "driver" ? "Haydovchi":null}
-                      {dat.role === "manager" ? "Meneger":null}
-                      {dat.role === "texnolog" ? "Bosh texnolog":null}
-                      {dat.role === "businesmaneger" ? "Biznes meneger":null}
-                    </th>
-                    <th>{dat.salary}</th>
-                    <th>{dat.address}</th>
-                    <th>{dat.phone_number}</th>
-                    <th>
-                      <button onClick={this.handleOpen.bind(this, dat.id)}>
-                        <img className="delet_img" src={del} alt="" />
-                      </button>
-                    </th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.first_name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
+        <div className="table">
+          <table id="t_Excel">
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Ismi familyasi</p>
+                </th>
+                <th>
+                  <p> Lavozimi</p>
+                </th>
+                <th>
+                  <p> Oylik ma'oshi</p>
+                </th>
+                <th>
+                  <p> Yashash manzili</p>
+                </th>
+                <th>
+                  <p> Telefon raqami</p>
+                </th>
+                <th>
+                  <p> Hodimni o'chirish</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.props.search === false) {
                   return (
                     <tr>
                       <th>{id + 1}</th>
@@ -185,42 +155,74 @@ class Hodimlar_royhati extends Component {
                       </th>
                     </tr>
                   );
+                } else {
+                  if (
+                    dat.first_name
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>
+                          {dat.first_name} {dat.last_name}
+                        </th>
+                        <th>
+                          {dat.role === "director" ? "Direktor":null}
+                          {dat.role === "warehouseman" ? "Omborchi":null}
+                          {dat.role === "staff" ? "Oddiy ishchi":null}
+                          {dat.role === "driver" ? "Haydovchi":null}
+                          {dat.role === "manager" ? "Meneger":null}
+                          {dat.role === "texnolog" ? "Bosh texnolog":null}
+                          {dat.role === "businesmaneger" ? "Biznes meneger":null}
+                        </th>
+                        <th>{dat.salary}</th>
+                        <th>{dat.address}</th>
+                        <th>{dat.phone_number}</th>
+                        <th>
+                          <button onClick={this.handleOpen.bind(this, dat.id)}>
+                            <img className="delet_img" src={del} alt="" />
+                          </button>
+                        </th>
+                      </tr>
+                    );
+                  }
+                  if (
+                    dat.last_name
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>
+                          {dat.first_name} {dat.last_name}
+                        </th>
+                        <th>
+                          {dat.role === "director" ? "Direktor":null}
+                          {dat.role === "warehouseman" ? "Omborchi":null}
+                          {dat.role === "staff" ? "Oddiy ishchi":null}
+                          {dat.role === "driver" ? "Haydovchi":null}
+                          {dat.role === "manager" ? "Meneger":null}
+                          {dat.role === "texnolog" ? "Bosh texnolog":null}
+                          {dat.role === "businesmaneger" ? "Biznes meneger":null}
+                        </th>
+                        <th>{dat.salary}</th>
+                        <th>{dat.address}</th>
+                        <th>{dat.phone_number}</th>
+                        <th>
+                          <button onClick={this.handleOpen.bind(this, dat.id)}>
+                            <img className="delet_img" src={del} alt="" />
+                          </button>
+                        </th>
+                      </tr>
+                    );
+                  }
                 }
-                if (
-                  dat.last_name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
-                  return (
-                    <tr>
-                      <th>{id + 1}</th>
-                      <th>
-                        {dat.first_name} {dat.last_name}
-                      </th>
-                      <th>
-                        {dat.role === "director" ? "Direktor":null}
-                        {dat.role === "warehouseman" ? "Omborchi":null}
-                        {dat.role === "staff" ? "Oddiy ishchi":null}
-                        {dat.role === "driver" ? "Haydovchi":null}
-                        {dat.role === "manager" ? "Meneger":null}
-                        {dat.role === "texnolog" ? "Bosh texnolog":null}
-                        {dat.role === "businesmaneger" ? "Biznes meneger":null}
-                      </th>
-                      <th>{dat.salary}</th>
-                      <th>{dat.address}</th>
-                      <th>{dat.phone_number}</th>
-                      <th>
-                        <button onClick={this.handleOpen.bind(this, dat.id)}>
-                          <img className="delet_img" src={del} alt="" />
-                        </button>
-                      </th>
-                    </tr>
-                  );
-                }
-              }
-            })}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

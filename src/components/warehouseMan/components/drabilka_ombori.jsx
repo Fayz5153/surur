@@ -21,40 +21,27 @@ class DrabilkaOmbori extends Component {
   render() {
     return (
       <React.Fragment>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Mahsulot</p>
-              </th>
-              <th>
-                <p> Brak miqdori</p>
-              </th>
-              <th>
-                <p> O'lchov birligi</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.props.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>{dat.biscuit.name}</th>
-                    <th>{dat.quantity.split(".")[0]}</th>
-                    <th>{dat.biscuit.unit_of_measurement}</th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.biscuit.name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
+        <div className="table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Mahsulot</p>
+                </th>
+                <th>
+                  <p> Brak miqdori</p>
+                </th>
+                <th>
+                  <p> O'lchov birligi</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.props.search === false) {
                   return (
                     <tr>
                       <th>{id + 1}</th>
@@ -63,11 +50,26 @@ class DrabilkaOmbori extends Component {
                       <th>{dat.biscuit.unit_of_measurement}</th>
                     </tr>
                   );
+                } else {
+                  if (
+                    dat.biscuit.name
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.biscuit.name}</th>
+                        <th>{dat.quantity.split(".")[0]}</th>
+                        <th>{dat.biscuit.unit_of_measurement}</th>
+                      </tr>
+                    );
+                  }
                 }
-              }
-            })}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

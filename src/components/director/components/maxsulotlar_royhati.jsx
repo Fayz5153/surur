@@ -34,52 +34,36 @@ class Maxsulotlar_royhati extends Component {
             sheet="tablexls"
             buttonText="Excelga export"/>
         </div>
-        <table id="t_Excel">
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Nomi</p>
-              </th>
-              <th>
-                <p> Tan narxi</p>
-              </th>
-              <th>
-                <p> Sotish narxi </p>
-              </th>
-              <th>
-                <p> Pul birligi</p>
-              </th>
-              <th>
-                <p> O'zgartirilgan kuni</p>
-              </th>
-              <th>
-                <p> O'zgartirilgan vaqti</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.props.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>{dat.biscuit.name}</th>
-                    <th>{dat.biscuit.price.split(".")[0]}</th>
-                    <th>{dat.price.split(".")[0]}</th>
-                    <th>{dat.currency}</th>
-                    <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-                    <th>{dateFormat(dat.created_date, "HH:MM")}</th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.biscuit.name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
+        <div className="table">
+          <table id="t_Excel">
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Nomi</p>
+                </th>
+                <th>
+                  <p> Tan narxi</p>
+                </th>
+                <th>
+                  <p> Sotish narxi </p>
+                </th>
+                <th>
+                  <p> Pul birligi</p>
+                </th>
+                <th>
+                  <p> O'zgartirilgan kuni</p>
+                </th>
+                <th>
+                  <p> O'zgartirilgan vaqti</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.props.search === false) {
                   return (
                     <tr>
                       <th>{id + 1}</th>
@@ -91,11 +75,29 @@ class Maxsulotlar_royhati extends Component {
                       <th>{dateFormat(dat.created_date, "HH:MM")}</th>
                     </tr>
                   );
+                } else {
+                  if (
+                    dat.biscuit.name
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.biscuit.name}</th>
+                        <th>{dat.biscuit.price.split(".")[0]}</th>
+                        <th>{dat.price.split(".")[0]}</th>
+                        <th>{dat.currency}</th>
+                        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
+                        <th>{dateFormat(dat.created_date, "HH:MM")}</th>
+                      </tr>
+                    );
+                  }
                 }
-              }
-            })}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

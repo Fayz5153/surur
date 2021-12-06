@@ -144,118 +144,110 @@ class Kunlik_hisobot extends Component {
           </div>
           <div className="table">
             {this.state.links === 1 ?
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th><p>#</p></th>
-                      <th><p>Nomi</p></th>
-                      <th><p>O’lchov birligi</p></th>
-                      <th><p>Miqdori</p></th>
-                      <th><p>Narxi</p></th>
-                      <th><p>Umumiy narxi</p></th>
-                      <th><p>Yetkazib beruvchi</p></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                    <tr>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </tbody>
-                </table>
-              </div> 
-              :
-              this.state.links === 2 ?
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th><p>#</p></th>
-                      <th><p>Nomi</p></th>
-                      <th><p>O’lchov birligi</p></th>
-                      <th><p>Miqdori</p></th>
-                      <th><p>Narxi</p></th>
-                      <th><p>Umumiy narxi</p></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </tbody>
-                </table>
-              </div> 
-              :
-              this.state.links === 3 ?
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th><p>#</p></th>
-                      <th><p>Nomi</p></th>
-                      <th><p>O’lchov birligi</p></th>
-                      <th><p>Miqdori</p></th>
-                      <th><p>Narxi</p></th>
-                      <th><p>Umumiy narxi</p></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </tbody>
-                </table>
-              </div> 
-              :
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th><p>#</p></th>
-                      <th><p>Nomi</p></th>
-                      <th><p></p></th>
-                      <th><p></p></th>
-                      <th><p></p></th>
-                      <th><p></p></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><p>#</p></th>
+                    <th><p>Nomi</p></th>
+                    <th><p>O’lchov birligi</p></th>
+                    <th><p>Miqdori</p></th>
+                    <th><p>Narxi</p></th>
+                    <th><p>Umumiy narxi</p></th>
+                    <th><p>Yetkazib beruvchi</p></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </tbody>
+              </table>
+            :
+            this.state.links === 2 ?
+              <table>
+                <thead>
+                  <tr>
+                    <th><p>#</p></th>
+                    <th><p>Nomi</p></th>
+                    <th><p>O’lchov birligi</p></th>
+                    <th><p>Miqdori</p></th>
+                    <th><p>Narxi</p></th>
+                    <th><p>Umumiy narxi</p></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </tbody>
+              </table>
+            :
+            this.state.links === 3 ?
+              <table>
+                <thead>
+                  <tr>
+                    <th><p>#</p></th>
+                    <th><p>Nomi</p></th>
+                    <th><p>O’lchov birligi</p></th>
+                    <th><p>Miqdori</p></th>
+                    <th><p>Narxi</p></th>
+                    <th><p>Umumiy narxi</p></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </tbody>
+              </table>
+            :
+              <table>
+                <thead>
+                  <tr>
+                    <th><p>#</p></th>
+                    <th><p>Nomi</p></th>
+                    <th><p></p></th>
+                    <th><p></p></th>
+                    <th><p></p></th>
+                    <th><p></p></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </tbody>
+              </table>
           }
           </div>
         </div>

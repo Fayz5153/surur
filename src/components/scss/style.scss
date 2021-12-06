@@ -31,8 +31,9 @@ button{
 .asos_2{
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	width: 100%;
 	margin-top: 46px;
-	margin-left: 20px;
 }
 .logo{
 	width: 160px;
@@ -40,6 +41,7 @@ button{
 }
 .switchs{
 	padding-top: 50px;
+	width: 98%;
 }
 ////////////////   Tepa navbar start   ////////////////
 .up_nav{
@@ -51,9 +53,9 @@ button{
 	display: grid;
 	grid-template-columns: 1fr 4fr;
 	width: 100%;
-    padding: 10px 0;
-    right: 0;
-    top: 0;
+	padding: 10px 0;
+	right: 0;
+	top: 0;
 }
 .up_nav_2{
 	display: flex;
@@ -199,8 +201,11 @@ button{
 		opacity: 1;
 	}
 }
+.table{
+	width: 100%;
+}
 table{
-	width: 98%;
+	width: 100%;
 	border-spacing: 0px;
 	margin-top: 10px;
 	th{
@@ -1413,7 +1418,12 @@ table{
 		margin: 2px 33px;
 	}
 }
-@media (max-width:1024px) {
+@media (max-width:1350px) {
+	.up_nav{
+		grid-template-columns: 1.1fr 3fr;
+	}
+}
+@media (max-width:1250px) {
 	.asos{
 		grid-template-columns: 1fr;
 		margin: 0 auto;
@@ -1426,7 +1436,6 @@ table{
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		width: 99%;
 	}
 	.asos_1{
 		position: fixed;
@@ -1437,10 +1446,6 @@ table{
 		display: grid;
 		grid-template-columns: 2fr 4fr;
 		transition: 0.4s;
-	}
-	.asos_2{
-		width: 98%;
-		margin-left: 10px;
 	}
 	.buyurtma_btn {
 		display: flex;
@@ -1457,9 +1462,6 @@ table{
 		width: 100%;
 	}
 	.search{
-		width: 100%;
-	}
-	table{
 		width: 100%;
 	}
 	.toggle1{
@@ -1482,10 +1484,13 @@ table{
 	}
 	.chart_1 .react-datepicker__day-name, .chart_1 .react-datepicker__day, .chart_1 .react-datepicker__time-name {
 		margin: 2px 30px;
-  	}
+	}
 	.all_charts {
 		width: 100%;
-  	}
+	}
+	.table{
+		overflow: hidden;
+	}
 }
 @media (max-width: 768px) {
 

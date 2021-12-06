@@ -32,44 +32,30 @@ class Chiqimlar extends Component {
             sheet="tablexls"
             buttonText="Excelga export"/>
         </div>
-        <table id="t_Excel">
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Nomi</p>
-              </th>
-              <th>
-                <p> Summa</p>
-              </th>
-              <th>
-                <p> Izoh</p>
-              </th>
-              <th>
-                <p> Oxirgi kiritilgan kun</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.props.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>{dat.expense.name}</th>
-                    <th>{dat.cost.split(".")[0]}</th>
-                    <th>{dat.status}</th>
-                    <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.expense.name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
+        <div className="table">
+          <table id="t_Excel">
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Nomi</p>
+                </th>
+                <th>
+                  <p> Summa</p>
+                </th>
+                <th>
+                  <p> Izoh</p>
+                </th>
+                <th>
+                  <p> Oxirgi kiritilgan kun</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.props.search === false) {
                   return (
                     <tr>
                       <th>{id + 1}</th>
@@ -79,11 +65,27 @@ class Chiqimlar extends Component {
                       <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
                     </tr>
                   );
+                } else {
+                  if (
+                    dat.expense.name
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.expense.name}</th>
+                        <th>{dat.cost.split(".")[0]}</th>
+                        <th>{dat.status}</th>
+                        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
+                      </tr>
+                    );
+                  }
                 }
-              }
-            })}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

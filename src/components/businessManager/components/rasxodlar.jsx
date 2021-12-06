@@ -228,53 +228,36 @@ class Rasxodlar extends Component {
             </Fade>
           </Modal>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Chiqim nomi</p>
-              </th>
-              <th>
-                <p> Turi</p>
-              </th>
-              <th>
-                <p> Summa</p>
-              </th>
-              <th>
-                <p> To'lov turi</p>
-              </th>
-              <th>
-                <p> Datatime</p>
-              </th>
-              <th>
-                <p> Izoh</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.state.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>{dat.expense.name}</th>
-                    <th>
-                        {dat.status === "new" ? "Yangi":null}
-                        {dat.status === "completed" ? "Tugallangan":null}
-                    </th>
-                    <th>{dat.cost.split(".")[0]}</th>
-                    <th>{dat.currency}</th>
-                    <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-                    <th>{dat.note}</th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.expense.name.toUpperCase().includes(this.state.key.toUpperCase())
-                ) {
+        <div className="table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Chiqim nomi</p>
+                </th>
+                <th>
+                  <p> Turi</p>
+                </th>
+                <th>
+                  <p> Summa</p>
+                </th>
+                <th>
+                  <p> To'lov turi</p>
+                </th>
+                <th>
+                  <p> Datatime</p>
+                </th>
+                <th>
+                  <p> Izoh</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.state.search === false) {
                   return (
                     <tr>
                       <th>{id + 1}</th>
@@ -289,11 +272,30 @@ class Rasxodlar extends Component {
                       <th>{dat.note}</th>
                     </tr>
                   );
+                } else {
+                  if (
+                    dat.expense.name.toUpperCase().includes(this.state.key.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.expense.name}</th>
+                        <th>
+                            {dat.status === "new" ? "Yangi":null}
+                            {dat.status === "completed" ? "Tugallangan":null}
+                        </th>
+                        <th>{dat.cost.split(".")[0]}</th>
+                        <th>{dat.currency}</th>
+                        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
+                        <th>{dat.note}</th>
+                      </tr>
+                    );
+                  }
                 }
-              }
-            })}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

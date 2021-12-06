@@ -33,52 +33,36 @@ class Brak extends Component {
             sheet="tablexls"
             buttonText="Excelga export"/>
         </div>
-        <table id="t_Excel">
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Nomi</p>
-              </th>
-              <th>
-                <p> Og’rligi</p>
-              </th>
-              <th>
-                <p> O’lchov birligi</p>
-              </th>
-              <th>
-                <p> Summa</p>
-              </th>
-              <th>
-                <p> Izoh</p>
-              </th>
-              <th>
-                <p> Sana</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.props.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>{dat.biscuit.name}</th>
-                    <th>{dat.quantity.split(".")[0]}</th>
-                    <th>{dat.biscuit.unit_of_measurement}</th>
-                    <th>{dat.biscuit.price.split(".")[0]}</th>
-                    <th>{dat.comment}</th>
-                    <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.biscuit.name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
+        <div className="table">
+          <table id="t_Excel">
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Nomi</p>
+                </th>
+                <th>
+                  <p> Og’rligi</p>
+                </th>
+                <th>
+                  <p> O’lchov birligi</p>
+                </th>
+                <th>
+                  <p> Summa</p>
+                </th>
+                <th>
+                  <p> Izoh</p>
+                </th>
+                <th>
+                  <p> Sana</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.props.search === false) {
                   return (
                     <tr>
                       <th>{id + 1}</th>
@@ -90,11 +74,29 @@ class Brak extends Component {
                       <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
                     </tr>
                   );
+                } else {
+                  if (
+                    dat.biscuit.name
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.biscuit.name}</th>
+                        <th>{dat.quantity.split(".")[0]}</th>
+                        <th>{dat.biscuit.unit_of_measurement}</th>
+                        <th>{dat.biscuit.price.split(".")[0]}</th>
+                        <th>{dat.comment}</th>
+                        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
+                      </tr>
+                    );
+                  }
                 }
-              }
-            })}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

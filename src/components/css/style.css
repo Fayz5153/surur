@@ -46,8 +46,11 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
   margin-top: 46px;
-  margin-left: 20px;
 }
 
 .logo {
@@ -57,6 +60,7 @@ button {
 
 .switchs {
   padding-top: 50px;
+  width: 98%;
 }
 
 .up_nav {
@@ -266,8 +270,12 @@ button {
   opacity: 1;
 }
 
+.table {
+  width: 100%;
+}
+
 table {
-  width: 98%;
+  width: 100%;
   border-spacing: 0px;
   margin-top: 10px;
 }
@@ -1930,7 +1938,14 @@ table tbody tr:last-child td:last-child {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1350px) {
+  .up_nav {
+    -ms-grid-columns: 1.1fr 3fr;
+        grid-template-columns: 1.1fr 3fr;
+  }
+}
+
+@media (max-width: 1250px) {
   .asos {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -1954,7 +1969,6 @@ table tbody tr:last-child td:last-child {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 99%;
   }
   .asos_1 {
     position: fixed;
@@ -1968,10 +1982,6 @@ table tbody tr:last-child td:last-child {
         grid-template-columns: 2fr 4fr;
     -webkit-transition: 0.4s;
     transition: 0.4s;
-  }
-  .asos_2 {
-    width: 98%;
-    margin-left: 10px;
   }
   .buyurtma_btn {
     display: -webkit-box;
@@ -1992,9 +2002,6 @@ table tbody tr:last-child td:last-child {
     width: 100%;
   }
   .search {
-    width: 100%;
-  }
-  table {
     width: 100%;
   }
   .toggle1 {
@@ -2023,5 +2030,8 @@ table tbody tr:last-child td:last-child {
   }
   .all_charts {
     width: 100%;
+  }
+  .table {
+    overflow: hidden;
   }
 }

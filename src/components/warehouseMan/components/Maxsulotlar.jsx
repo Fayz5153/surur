@@ -201,52 +201,36 @@ class Maxsulotlar extends Component {
             </Fade>
           </Modal>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Maxsulot nomi</p>
-              </th>
-              <th>
-                <p> Maxsulot miqdori</p>
-              </th>
-              <th>
-                <p> O’lchov birligi</p>
-              </th>
-              <th>
-                <p> Yetkazib beruvchi </p>
-              </th>
-              <th>
-                <p> Izox</p>
-              </th>
-              <th>
-                <p> Kelish narxi</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.props.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>{dat.product.name}</th>
-                    <th>{dat.quantity.split(".")[0]}</th>
-                    <th>{dat.product.unit_of_measurement}</th>
-                    <th>{dat.product.supplier_name}</th>
-                    <th>{dat.product.description}</th>
-                    <th>{dat.average_price.split(".")[0]} {dat.currency}</th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.product.name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
+        <div className="table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Maxsulot nomi</p>
+                </th>
+                <th>
+                  <p> Maxsulot miqdori</p>
+                </th>
+                <th>
+                  <p> O’lchov birligi</p>
+                </th>
+                <th>
+                  <p> Yetkazib beruvchi </p>
+                </th>
+                <th>
+                  <p> Izox</p>
+                </th>
+                <th>
+                  <p> Kelish narxi</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.props.search === false) {
                   return (
                     <tr>
                       <th>{id + 1}</th>
@@ -258,11 +242,29 @@ class Maxsulotlar extends Component {
                       <th>{dat.average_price.split(".")[0]} {dat.currency}</th>
                     </tr>
                   );
+                } else {
+                  if (
+                    dat.product.name
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.product.name}</th>
+                        <th>{dat.quantity.split(".")[0]}</th>
+                        <th>{dat.product.unit_of_measurement}</th>
+                        <th>{dat.product.supplier_name}</th>
+                        <th>{dat.product.description}</th>
+                        <th>{dat.average_price.split(".")[0]} {dat.currency}</th>
+                      </tr>
+                    );
+                  }
                 }
-              }
-            })}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

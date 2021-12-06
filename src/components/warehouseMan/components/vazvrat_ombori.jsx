@@ -174,55 +174,57 @@ class VazvratOmbori extends Component {
             </Fade>
           </Modal>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Maxsulot nomi</p>
-              </th>
-              <th>
-                <p> Kimdan qaytgan</p>
-              </th>
-              <th>
-                <p> Qancha qaytgan</p>
-              </th>
-              <th>
-                <p> Qachon qaytgani</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-							if (this.props.search === false){
-								return(
-									<tr>
-										<th>{id+1}</th>
-										<th>{dat.biscuit.name}</th>
-										<th>{dat.client_first_name} {dat.client_last_name}</th>
-										<th>{dat.quantity.split(".")[0]} {dat.biscuit.unit_of_measurement}</th>
-										<th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-									</tr>
-								)
-							}
-							else {
-								if (dat.biscuit.name.toUpperCase().includes(this.props.keyword.toUpperCase())) {
-									return(
-										<tr>
+        <div className="table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Maxsulot nomi</p>
+                </th>
+                <th>
+                  <p> Kimdan qaytgan</p>
+                </th>
+                <th>
+                  <p> Qancha qaytgan</p>
+                </th>
+                <th>
+                  <p> Qachon qaytgani</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.props.search === false){
+                  return(
+                    <tr>
                       <th>{id+1}</th>
                       <th>{dat.biscuit.name}</th>
                       <th>{dat.client_first_name} {dat.client_last_name}</th>
                       <th>{dat.quantity.split(".")[0]} {dat.biscuit.unit_of_measurement}</th>
                       <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
                     </tr>
-									)
-								}
-							}
-						})}
-          </tbody>
-        </table>
+                  )
+                }
+                else {
+                  if (dat.biscuit.name.toUpperCase().includes(this.props.keyword.toUpperCase())) {
+                    return(
+                      <tr>
+                        <th>{id+1}</th>
+                        <th>{dat.biscuit.name}</th>
+                        <th>{dat.client_first_name} {dat.client_last_name}</th>
+                        <th>{dat.quantity.split(".")[0]} {dat.biscuit.unit_of_measurement}</th>
+                        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
+                      </tr>
+                    )
+                  }
+                }
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

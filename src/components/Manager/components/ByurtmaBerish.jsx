@@ -167,60 +167,36 @@ class ByurtmaBerish extends Component {
             </Fade>
           </Modal>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Maxsulot nomi</p>
-              </th>
-              <th>
-                <p> Maxsulot miqdori</p>
-              </th>
-              <th>
-                <p> O’lchov birligi</p>
-              </th>
-              <th>
-                <p> Tayyor bo'lish sanasi </p>
-              </th>
-              <th>
-                <p> Izox</p>
-              </th>
-              <th>
-                <p> Status</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.props.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>{dat.biscuit.name}</th>
-                    <th>{dat.quantity.split(".")[0]}</th>
-                    <th>{dat.biscuit.unit_of_measurement}</th>
-                    <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
-                    <th>{dat.comment}</th>
-                    <th className="statusi">
-                      {dat.status === "new" ? <p>Yangi</p> : null}
-                      {dat.status === "pending" ? (
-                        <p className="sariq">Tayyorlanmoqda</p>
-                      ) : null}
-                      {dat.status === "completed" ? (
-                        <p className="yashil">Tayyor</p>
-                      ) : null}
-                    </th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.biscuit.name
-                    .toUpperCase()
-                    .includes(this.props.keyword.toUpperCase())
-                ) {
+        <div className="table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Maxsulot nomi</p>
+                </th>
+                <th>
+                  <p> Maxsulot miqdori</p>
+                </th>
+                <th>
+                  <p> O’lchov birligi</p>
+                </th>
+                <th>
+                  <p> Tayyor bo'lish sanasi </p>
+                </th>
+                <th>
+                  <p> Izox</p>
+                </th>
+                <th>
+                  <p> Status</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.props.search === false) {
                   return (
                     <tr>
                       <th>{id + 1}</th>
@@ -240,11 +216,37 @@ class ByurtmaBerish extends Component {
                       </th>
                     </tr>
                   );
+                } else {
+                  if (
+                    dat.biscuit.name
+                      .toUpperCase()
+                      .includes(this.props.keyword.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{id + 1}</th>
+                        <th>{dat.biscuit.name}</th>
+                        <th>{dat.quantity.split(".")[0]}</th>
+                        <th>{dat.biscuit.unit_of_measurement}</th>
+                        <th>{dateFormat(dat.created_date, "dd/mm/yyyy")}</th>
+                        <th>{dat.comment}</th>
+                        <th className="statusi">
+                          {dat.status === "new" ? <p>Yangi</p> : null}
+                          {dat.status === "pending" ? (
+                            <p className="sariq">Tayyorlanmoqda</p>
+                          ) : null}
+                          {dat.status === "completed" ? (
+                            <p className="yashil">Tayyor</p>
+                          ) : null}
+                        </th>
+                      </tr>
+                    );
+                  }
                 }
-              }
-            })}
-          </tbody>
-        </table>
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }

@@ -238,59 +238,33 @@ class Taminotchi extends Component {
             </Fade>
           </Modal>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <p> # </p>
-              </th>
-              <th>
-                <p> Nomi</p>
-              </th>
-              <th>
-                <p> Manzili</p>
-              </th>
-              <th>
-                <p> Masul shaxs ismi</p>
-              </th>
-              <th>
-                <p> Bank rekviziti</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data.map((dat, id) => {
-              if (this.state.search === false) {
-                return (
-                  <tr>
-                    <th>{id + 1}</th>
-                    <th>{dat.name}</th>
-                    <th>{dat.address}</th>
-                    <th>{dat.responsible_person_name}</th>
-                    <th>
-                      <div className="koz">
-                        <button>
-                          <img src={eye} alt="" />
-                          <div className="mfoinn">
-                            <p>x/r: {dat.xr}</p>
-                            <p>mfo: {dat.mfo}</p>
-                            <p>inn: {dat.inn}</p>
-                            <p>
-                              Sana: {dateFormat(dat.created_date, "dd/mm/yyyy")}
-                            </p>
-                          </div>
-                        </button>
-                      </div>
-                    </th>
-                  </tr>
-                );
-              } else {
-                if (
-                  dat.name.toUpperCase().includes(this.state.key.toUpperCase())
-                ) {
+        <div className="table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <p> # </p>
+                </th>
+                <th>
+                  <p> Nomi</p>
+                </th>
+                <th>
+                  <p> Manzili</p>
+                </th>
+                <th>
+                  <p> Masul shaxs ismi</p>
+                </th>
+                <th>
+                  <p> Bank rekviziti</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.data.map((dat, id) => {
+                if (this.state.search === false) {
                   return (
                     <tr>
-                      <th>{dat.id}</th>
+                      <th>{id + 1}</th>
                       <th>{dat.name}</th>
                       <th>{dat.address}</th>
                       <th>{dat.responsible_person_name}</th>
@@ -303,8 +277,7 @@ class Taminotchi extends Component {
                               <p>mfo: {dat.mfo}</p>
                               <p>inn: {dat.inn}</p>
                               <p>
-                                Sana:{" "}
-                                {dateFormat(dat.created_date, "dd/mm/yyyy")}
+                                Sana: {dateFormat(dat.created_date, "dd/mm/yyyy")}
                               </p>
                             </div>
                           </button>
@@ -312,11 +285,40 @@ class Taminotchi extends Component {
                       </th>
                     </tr>
                   );
-                };
-              }
-            })}
-          </tbody>
-        </table>
+                } else {
+                  if (
+                    dat.name.toUpperCase().includes(this.state.key.toUpperCase())
+                  ) {
+                    return (
+                      <tr>
+                        <th>{dat.id}</th>
+                        <th>{dat.name}</th>
+                        <th>{dat.address}</th>
+                        <th>{dat.responsible_person_name}</th>
+                        <th>
+                          <div className="koz">
+                            <button>
+                              <img src={eye} alt="" />
+                              <div className="mfoinn">
+                                <p>x/r: {dat.xr}</p>
+                                <p>mfo: {dat.mfo}</p>
+                                <p>inn: {dat.inn}</p>
+                                <p>
+                                  Sana:{" "}
+                                  {dateFormat(dat.created_date, "dd/mm/yyyy")}
+                                </p>
+                              </div>
+                            </button>
+                          </div>
+                        </th>
+                      </tr>
+                    );
+                  };
+                }
+              })}
+            </tbody>
+          </table>
+        </div>
       </React.Fragment>
     );
   }
