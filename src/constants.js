@@ -1,1 +1,1 @@
-export const baseUrl = "http://sururbackend.backoffice.uz";
+export const baseUrl = "http://";
